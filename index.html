@@ -19,9 +19,9 @@
      A continuous margin rule carries the page; metadata hangs in
      the left margin. Identity comes from three things that are
      actually on subject:
-       — Instrument Sans for display and text, DM Mono for labels
-       — oversized section numerals in vermilion
-       — a boundary-layer mesh drawn to a real growth ratio
+       . Instrument Sans for display and text, DM Mono for labels
+       . oversized section numerals in vermilion
+       . a boundary-layer mesh drawn to a real growth ratio
      No boxes, no rounded corners, no shadows.
      ============================================================ */
 
@@ -35,8 +35,8 @@
     --rule:#13151a;
     --hair:#d5d2ca;
     --hair-soft:#e3e0d9;
-    --mark:#cf3a1c;         /* vermilion — indices, marks, arrows */
-    --blue:#2b6f8f;         /* blueprint — mesh, states */
+    --mark:#cf3a1c;         /* vermilion: indices, marks, arrows */
+    --blue:#2b6f8f;         /* blueprint: mesh, states */
     --rail:170px;
     --cube:13px;            /* the red mark: one size, entries and sub-headings */
     color-scheme: light;
@@ -150,7 +150,7 @@
 
   /* ---------------- boundary-layer mesh ---------------- */
   /* Prism-layer stack on a no-slip wall, first height 2.2 px and
-     growth ratio 1.32 — the same construction as a real near-wall
+     growth ratio 1.32, the same construction as a real near-wall
      mesh. The wall line closes the title page.                      */
   .blm{margin-top:62px; margin-bottom:112px; position:relative}
   .blm svg{display:block; width:100%; height:auto}
@@ -164,7 +164,7 @@
 
   /* ---------------- the sheet: continuous margin rule ---------------- */
   /* The margin rule spans exactly from the opening rule of 01 to the
-     closing rule of the colophon — never above or below them.        */
+     closing rule of the colophon, never above or below them.        */
   .sheet{
     padding-bottom:136px;
     background-image:linear-gradient(90deg,
@@ -210,7 +210,7 @@
   }
 
   /* content rows */
-  /* Entries are separated by space and by their own red mark — no rules. */
+  /* Entries are separated by space and by their own red mark, not by rules. */
   .body{padding:42px 0 0}
   .entry{padding:66px 0 0}
   .entry:first-of-type{padding-top:46px}
@@ -282,7 +282,7 @@
   }
   .keys .sep{text-decoration:none; color:var(--hair); margin:0 9px}
 
-  /* download: an unmistakable bar — sharp corners, filled arrow block */
+  /* download: an unmistakable bar with sharp corners and a filled arrow block */
   .dl{
     display:inline-flex; align-items:stretch; max-width:100%;
     margin-top:32px; margin-left:30px; text-decoration:none; color:var(--ink);
