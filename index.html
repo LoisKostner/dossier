@@ -348,7 +348,7 @@
     font-family:'Instrument Sans',sans-serif; font-style:normal; font-weight:400;
     color:var(--faint); font-size:13.5px; letter-spacing:0;
   }
-  .spec.sw dd .sep{text-decoration:none; color:var(--hair); margin:0 10px; font-weight:400}
+  .spec dd .sep{text-decoration:none; color:var(--hair); margin:0 9px; font-weight:400}
 
   .subhead{margin-bottom:26px}
   .block + .block{margin-top:66px}
@@ -501,10 +501,9 @@
             begin my MSc at Technische Universität München in October 2026.
           </p>
           <p>
-            Every project in this dossier was carried end to end: geometry preparation, meshing, solver
-            setup, verification, and the post-processing that turns a converged solution into a number an
-            engineer can actually act on. What I care about most is the middle step. A result without a
-            mesh-independence study, a near-wall validity check and an honest uncertainty budget is an
+            My simulation work is built around end-to-end workflows: geometry preparation, meshing,
+            solver setup, verification, and post-processing. What I care about most is the middle step.
+            A result without a mesh-independence study, a near-wall validity check and an honest uncertainty budget is an
             opinion, not an answer, so each report states plainly what was verified, what was simplified,
             and where the conclusions stop.
           </p>
@@ -756,56 +755,27 @@
           <dl class="spec">
             <div>
               <dt>Geometry preparation</dt>
-              <dd>
-                <span class="li">Geometry creation, simplification and cleanup for CFD meshing</span>
-                <span class="li">Equivalent beam model construction</span>
-              </dd>
+              <dd>Geometry creation, simplification and CFD preprocessing <span class="sep">·</span> Equivalent beam modelling</dd>
             </div>
             <div>
               <dt>Meshing</dt>
-              <dd>
-                <span class="li">Unstructured poly-hexcore meshing with prism boundary layers</span>
-                <span class="li">Structured multi-block meshing</span>
-                <span class="li">Boundary-layer and near-wall sizing, y⁺ targeting</span>
-                <span class="li">Mesh-quality assessment: skewness, orthogonal quality</span>
-              </dd>
+              <dd>Poly-hexcore and prism-layer meshing <span class="sep">·</span> Structured multi-block meshing <span class="sep">·</span> Near-wall sizing and mesh-quality assessment</dd>
             </div>
             <div>
               <dt>CFD</dt>
-              <dd>
-                <span class="li">Simulation setup for compressible external flow and supersonic jets</span>
-                <span class="li">RANS turbulence modelling: k-ω SST, wall functions</span>
-                <span class="li">Mesh- and domain-independence studies</span>
-                <span class="li">Convergence, stationarity and uncertainty assessment</span>
-                <span class="li">Aerodynamic load evaluation and post-processing</span>
-              </dd>
+              <dd>Compressible RANS <span class="sep">·</span> Turbulence modelling <span class="sep">·</span> Mesh/domain verification <span class="sep">·</span> Convergence and uncertainty assessment <span class="sep">·</span> Post-processing</dd>
             </div>
             <div>
               <dt>Structural analysis</dt>
-              <dd>
-                <span class="li">Structural modelling of load-bearing components</span>
-                <span class="li">Inertia relief and internal load-path reconstruction</span>
-                <span class="li">Local component and fastener checks</span>
-                <span class="li">Safety-margin verification</span>
-                <span class="li">Modal analysis of aerospace structures</span>
-              </dd>
+              <dd>Static and modal FEM <span class="sep">·</span> Inertia relief <span class="sep">·</span> Load-path reconstruction <span class="sep">·</span> Component verification and safety margins</dd>
             </div>
             <div>
               <dt>Programming &amp; docs</dt>
-              <dd>
-                <span class="li">Modular post-processing tools and automated data handling</span>
-                <span class="li">Custom analysis scripts for simulation workflows</span>
-                <span class="li">Technical report writing, presentation material, graphic design</span>
-              </dd>
+              <dd>MATLAB post-processing and automation <span class="sep">·</span> Technical reporting <span class="sep">·</span> LaTeX</dd>
             </div>
             <div>
               <dt>Organisation</dt>
-              <dd>
-                <span class="li">Association governance and internal regulation</span>
-                <span class="li">Budget management and public-funding compliance</span>
-                <span class="li">Sponsor relations and institutional communication</span>
-                <span class="li">Recruitment and event logistics</span>
-              </dd>
+              <dd>Team governance <span class="sep">·</span> Budget and public funding <span class="sep">·</span> Sponsor relations <span class="sep">·</span> Recruitment</dd>
             </div>
           </dl>
         </div>
@@ -856,13 +826,6 @@
       <div class="col">
         <h3>BSc in Aerospace Engineering</h3>
         <p class="org">Alma Mater Studiorum, University of Bologna · 110/110</p>
-        <div class="prose">
-          <p>
-            Thesis: <strong>the aerodynamic impact of the propulsive jet on a sounding rocket</strong>.
-            A CFD assessment of the variation in the main force and moment coefficients when the exhaust
-            jet is modelled rather than neglected.
-          </p>
-        </div>
       </div>
     </div>
   </section>
