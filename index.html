@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="only light">
 <title>Lois Kostner · Project Dossier</title>
 <meta name="description" content="Project dossier of Lois Kostner, MSc student in Aerospace Engineering. CFD, aero-thermodynamics and turbomachinery. Downloadable technical reports.">
 <meta name="author" content="Lois Kostner">
@@ -37,26 +38,31 @@
     --hair-soft:#e3e0d9;
     --mark:#cf3a1c;         /* vermilion: indices, marks, arrows */
     --blue:#2b6f8f;         /* blueprint: mesh, states */
-    --rail:170px;
     --cube:13px;            /* the red mark: one size, entries and sub-headings */
-    color-scheme: light;
+
+    /* Layout scale. The structure never changes with the viewport: the
+       margin rule, the numerals hanging in the margin and the red mark
+       in its gutter survive down to a phone. Only these numbers move. */
+    --edge:44px;            /* page margin */
+    --rail:170px;           /* margin column, carries the vertical rule */
+    --railpad:24px;
+    --colpad:34px;          /* rule to content */
+    --gutter:30px;          /* hanging gutter for the red mark */
+    --spec-dt:196px;
+
+    /* The palette is fixed. 'only light' also opts the page out of the
+       automatic darkening some mobile browsers apply on their own. */
+    color-scheme: only light;
   }
-  @media (prefers-color-scheme: dark){
-    :root{
-      --paper:#0d0f13;
-      --paper-2:#14171d;
-      --ink:#eceef2;
-      --ink-text:#c3c8d1;
-      --muted:#8b919c;
-      --faint:#646a75;
-      --rule:#d9dbe0;
-      --hair:#262a32;
-      --hair-soft:#1e222a;
-      --mark:#ff6a45;
-      --blue:#63b3d4;
-      color-scheme: dark;
-    }
+  @media (max-width:1040px){ :root{--edge:36px; --rail:146px; --colpad:28px; --spec-dt:160px} }
+  @media (max-width:820px){
+    :root{--edge:30px; --rail:112px; --railpad:18px; --colpad:22px; --gutter:24px;
+          --cube:11px; --spec-dt:132px}
   }
+  @media (max-width:560px){
+    :root{--edge:26px; --rail:80px; --railpad:14px; --colpad:16px; --gutter:20px; --cube:10px}
+  }
+  @media (max-width:400px){ :root{--edge:22px; --rail:72px; --railpad:12px; --colpad:13px; --gutter:18px} }
 
   *{box-sizing:border-box}
   html{scroll-behavior:smooth; -webkit-text-size-adjust:100%}
@@ -66,6 +72,7 @@
     font-size:16.5px; line-height:1.68; font-weight:400;
     -webkit-font-smoothing:antialiased;
   }
+  @media (max-width:560px){ body{font-size:15.5px; line-height:1.62} }
   ::selection{background:var(--mark); color:#fff}
   a{color:inherit}
   sup{font-size:.62em}
@@ -76,9 +83,7 @@
     letter-spacing:.2em; text-transform:uppercase;
   }
 
-  .wrap{max-width:1140px; margin:0 auto; padding:0 44px}
-  @media (max-width:900px){ .wrap{padding:0 30px} }
-  @media (max-width:520px){ .wrap{padding:0 20px} }
+  .wrap{max-width:1140px; margin:0 auto; padding:0 var(--edge)}
 
   /* ---------------- nav ---------------- */
   .nav{
@@ -110,7 +115,8 @@
   }
   .nav a.lnk:hover{color:var(--ink)}
   .nav a.lnk.on{color:var(--ink); border-bottom-color:var(--mark)}
-  @media (max-width:880px){ .nav .lnk{display:none} }
+  @media (max-width:900px){ .nav-in{gap:18px} .nav a.lnk{font-size:10px; letter-spacing:.1em} }
+  @media (max-width:660px){ .nav .lnk{display:none} }
   .nav .cv{
     font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.14em;
     text-transform:uppercase; text-decoration:none; color:var(--ink);
@@ -126,7 +132,7 @@
   h1{
     font-family:'Instrument Sans','Helvetica Neue',Arial,sans-serif; font-weight:400;
     margin:0 0 26px; color:var(--ink);
-    font-size:clamp(3rem, 9vw, 5.7rem); line-height:.98; letter-spacing:-.042em;
+    font-size:clamp(2.3rem, 11vw, 5.7rem); line-height:.98; letter-spacing:-.042em;
   }
   .role{
     margin:0 0 18px; font-family:'Instrument Sans','Helvetica Neue',Arial,sans-serif; font-weight:400;
@@ -152,15 +158,20 @@
   /* Prism-layer stack on a no-slip wall, first height 2.2 px and
      growth ratio 1.32, the same construction as a real near-wall
      mesh. The wall line closes the title page.                      */
-  .blm{margin-top:62px; margin-bottom:112px; position:relative}
-  .blm svg{display:block; width:100%; height:auto}
+  /* Full bleed: the mesh sits outside .wrap, so it runs from one edge
+     of the screen to the other. Only its caption keeps the page margin. */
+  .blm{margin-top:62px; margin-bottom:112px; position:relative; width:100%}
+  .blm svg{display:block; width:100%; height:172px}
   .blm .cap{
-    position:absolute; right:0; bottom:12px;
+    position:absolute; bottom:12px;
+    right:max(var(--edge), calc(50% - 570px + var(--edge)));
     font-family:'DM Mono',monospace; font-size:9.5px; letter-spacing:.16em;
     text-transform:uppercase; color:var(--faint); background:var(--paper);
     padding-left:12px;
   }
-  @media (max-width:640px){ .blm{margin-top:44px; margin-bottom:72px} .blm .cap{display:none} }
+  @media (max-width:820px){ .blm{margin-top:50px; margin-bottom:84px} .blm svg{height:140px} }
+  @media (max-width:560px){ .blm{margin-top:40px; margin-bottom:66px} .blm svg{height:112px}
+                            .blm .cap{display:none} }
 
   /* ---------------- the sheet: continuous margin rule ---------------- */
   /* The margin rule spans exactly from the opening rule of 01 to the
@@ -173,18 +184,13 @@
       transparent var(--rail));
   }
   .row{display:grid; grid-template-columns:var(--rail) 1fr}
-  .rail{padding-right:24px}
-  .col{padding-left:34px; min-width:0}
-  @media (max-width:820px){
-    .sheet{background-image:none; padding-bottom:86px}
-    .row{grid-template-columns:1fr}
-    .rail{padding-right:0; padding-bottom:16px}
-    .col{padding-left:0}
-  }
+  .rail{padding-right:var(--railpad); min-width:0}
+  .col{padding-left:var(--colpad); min-width:0}
+  @media (max-width:820px){ .sheet{padding-bottom:96px} }
 
   /* section spacing */
   .sheet > section + section{margin-top:136px}
-  @media (max-width:820px){ .sheet > section + section{margin-top:86px} }
+  @media (max-width:820px){ .sheet > section + section{margin-top:92px} }
 
   /* Anchors must clear the sticky bar (58px) plus breathing room, or a
      jumped-to heading lands half-hidden underneath it. */
@@ -195,19 +201,15 @@
   .head{border-top:2px solid var(--rule); padding-top:26px}
   .head .rail .num{
     display:block; font-family:'Instrument Sans','Helvetica Neue',Arial,sans-serif; font-weight:600;
-    font-size:clamp(2rem, 4.4vw, 3.1rem); line-height:.84; color:var(--mark);
+    font-size:clamp(1.75rem, 4.4vw, 3.1rem); line-height:.84; color:var(--mark);
     letter-spacing:-.03em;
   }
   .head h2{
     margin:0; font-family:'Instrument Sans','Helvetica Neue',Arial,sans-serif; font-weight:500;
-    font-size:clamp(2.2rem, 5.6vw, 3.3rem); line-height:.98; letter-spacing:-.034em;
+    font-size:clamp(1.9rem, 5.6vw, 3.3rem); line-height:.98; letter-spacing:-.034em;
     color:var(--ink);
   }
-  @media (max-width:820px){
-    .head{padding-top:18px; border-top-width:1px}
-    .head .rail{padding-bottom:12px}
-    .head .rail .num{font-size:2.1rem}
-  }
+  @media (max-width:820px){ .head{padding-top:20px} }
 
   /* content rows */
   /* Entries are separated by space and by their own red mark, not by rules. */
@@ -215,9 +217,9 @@
   .entry{padding:66px 0 0}
   .entry:first-of-type{padding-top:46px}
   @media (max-width:820px){
-    .body{padding-top:30px}
-    .entry{padding:48px 0 0}
-    .entry:first-of-type{padding-top:32px}
+    .body{padding-top:32px}
+    .entry{padding:52px 0 0}
+    .entry:first-of-type{padding-top:34px}
   }
 
   .rail .when{
@@ -234,17 +236,25 @@
   .rail .state.m{color:var(--mark)}
   .rail .state.m::before{background:var(--mark)}
   @media (max-width:820px){
-    .rail .when{display:inline; line-height:1.6}
-    .rail .when b{display:inline; margin-right:10px}
-    .rail .state{margin-top:0; margin-left:16px}
+    .rail .when{font-size:10px; letter-spacing:.07em; line-height:1.75}
+    .rail .state{font-size:9px; letter-spacing:.08em; gap:6px; margin-top:11px}
+    .rail .state::before{width:5px; height:5px}
+  }
+  @media (max-width:560px){
+    .rail .when{font-size:9.5px; letter-spacing:.04em}
+    .rail .state{font-size:8.5px; letter-spacing:.04em}
+  }
+  @media (max-width:400px){
+    .rail .when{font-size:8.5px; letter-spacing:.02em}
+    .rail .state{font-size:8px; letter-spacing:.02em; gap:5px}
   }
 
   /* One treatment for every red-marked heading: entry titles and the
      sub-headings inside Skills are the same size, weight and gutter.  */
   h3, .subhead{
-    position:relative; padding-left:30px;
+    position:relative; padding-left:var(--gutter);
     margin:0 0 8px; font-family:'Instrument Sans','Helvetica Neue',Arial,sans-serif; font-weight:500;
-    font-size:clamp(1.4rem,3.3vw,1.82rem); line-height:1.2; letter-spacing:-.024em;
+    font-size:clamp(1.22rem,3.3vw,1.82rem); line-height:1.22; letter-spacing:-.024em;
     color:var(--ink); max-width:42ch;
   }
   h3::before, .subhead::before{
@@ -252,7 +262,7 @@
     width:var(--cube); height:var(--cube); background:var(--mark);
   }
   .org{
-    padding-left:30px;
+    padding-left:var(--gutter);
     font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.1em;
     text-transform:uppercase; color:var(--muted); margin:0 0 22px;
   }
@@ -285,10 +295,10 @@
   /* download: an unmistakable bar with sharp corners and a filled arrow block */
   .dl{
     display:inline-flex; align-items:stretch; max-width:100%;
-    margin-top:32px; margin-left:30px; text-decoration:none; color:var(--ink);
+    margin-top:32px; margin-left:var(--gutter); text-decoration:none; color:var(--ink);
     border:1px solid var(--mark); transition:background-color .18s, color .18s;
   }
-  @media (max-width:820px){ .dl{margin-left:0} }
+
   .dl .ico{
     flex:none; width:46px; display:grid; place-items:center;
     background:var(--mark); color:var(--paper); font-size:19px; line-height:1;
@@ -310,21 +320,21 @@
   .dl:hover .s{color:var(--paper); opacity:.8}
 
   .pending{
-    display:inline-flex; align-items:center; margin-top:32px; margin-left:30px;
+    display:inline-flex; align-items:center; margin-top:32px; margin-left:var(--gutter);
     border:1px dashed var(--hair); padding:13px 20px;
     font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.12em;
     text-transform:uppercase; color:var(--faint);
   }
-  @media (max-width:820px){ .pending{margin-left:0} }
 
-  /* Everything in an entry hangs off the same 30px gutter, so the red
+
+  /* Everything in an entry hangs off the same gutter, so the red
      mark is the only thing living in the margin.                      */
-  .entry .prose, .entry ul.bul, .entry .keys{padding-left:30px}
+  .entry .prose, .entry ul.bul, .entry .keys{padding-left:var(--gutter)}
 
   /* ---------------- specification list ---------------- */
-  .spec{margin:0; padding:0 0 0 30px}
+  .spec{margin:0; padding:0 0 0 var(--gutter)}
   .spec > div{
-    display:grid; grid-template-columns:196px 1fr; gap:0 32px;
+    display:grid; grid-template-columns:var(--spec-dt) 1fr; gap:0 26px;
     padding:16px 0; border-top:1px solid var(--hair-soft);
   }
   .spec > div:first-child{border-top:none; padding-top:4px}
@@ -335,8 +345,8 @@
   .spec dd{margin:0; color:var(--ink-text); font-size:15.8px; line-height:1.6}
   .spec dd .li{display:block; text-decoration:none}
   .spec dd .li + .li{margin-top:3px}
-  @media (max-width:700px){
-    .spec > div{grid-template-columns:1fr; gap:8px}
+  @media (max-width:520px){
+    .spec > div{grid-template-columns:1fr; gap:7px}
     .spec dt{padding-top:0}
   }
   /* software: display type, so the instruments read as names */
@@ -359,22 +369,17 @@
     display:grid; grid-template-columns:var(--rail) 1fr;
     border-top:2px solid var(--rule); padding-top:26px;
   }
-  .foot .rail{padding-right:24px}
+  .foot .rail{padding-right:var(--railpad); min-width:0}
   .foot .rail .num{
     display:block; font-family:'Instrument Sans','Helvetica Neue',Arial,sans-serif; font-weight:600;
-    font-size:clamp(2rem, 4.4vw, 3.1rem); line-height:.84; color:var(--mark);
+    font-size:clamp(1.75rem, 4.4vw, 3.1rem); line-height:.84; color:var(--mark);
     letter-spacing:-.03em;
   }
-  .foot .col{padding-left:34px}
-  @media (max-width:820px){
-    .foot{grid-template-columns:1fr; border-top-width:1px; padding-top:18px}
-    .foot .rail{padding:0 0 12px}
-    .foot .rail .num{font-size:2.1rem}
-    .foot .col{padding-left:0}
-  }
+  .foot .col{padding-left:var(--colpad); min-width:0}
+  @media (max-width:820px){ .foot{padding-top:20px} }
   .foot h5{
     margin:0 0 20px; font-family:'Instrument Sans','Helvetica Neue',Arial,sans-serif; font-weight:500;
-    font-size:clamp(2.2rem, 5.6vw, 3.3rem); line-height:.98; letter-spacing:-.034em;
+    font-size:clamp(1.9rem, 5.6vw, 3.3rem); line-height:.98; letter-spacing:-.034em;
     color:var(--ink);
   }
   .foot .invite{margin:0 0 32px; color:var(--muted); font-size:16px; max-width:48ch}
@@ -385,6 +390,7 @@
     font-size:16px; transition:color .18s;
   }
   .addr a:hover{color:var(--mark)}
+  .addr a{flex-wrap:wrap}
   .addr a .k{
     flex:none; width:96px; color:var(--faint);
     font-family:'DM Mono',monospace; font-size:10px;
@@ -447,37 +453,38 @@
     <a href="mailto:loiskostner@gmail.com">Email <i>↗</i></a>
   </div>
 
-  <!-- boundary-layer mesh: prism stack on a no-slip wall, growth 1.32 -->
-  <div class="blm" aria-hidden="true">
-    <svg viewBox="0 0 1200 200" preserveAspectRatio="none" style="height:172px">
-      <!-- graded layer interfaces, dense at the wall -->
-      <g fill="none" stroke="var(--blue)" stroke-width="1">
-        <path d="M0 193.8h1200" opacity=".80"/>
-        <path d="M0 190.9h1200" opacity=".72"/>
-        <path d="M0 187.1h1200" opacity=".64"/>
-        <path d="M0 182.0h1200" opacity=".56"/>
-        <path d="M0 175.3h1200" opacity=".48"/>
-        <path d="M0 166.5h1200" opacity=".41"/>
-        <path d="M0 154.9h1200" opacity=".34"/>
-        <path d="M0 139.5h1200" opacity=".28"/>
-        <path d="M0 119.2h1200" opacity=".22"/>
-        <path d="M0  92.4h1200" opacity=".16"/>
-        <path d="M0  57.0h1200" opacity=".11"/>
-        <path d="M0  10.3h1200" opacity=".07"/>
-      </g>
-      <!-- streamwise cell divisions -->
-      <g fill="none" stroke="var(--blue)" stroke-width="1" opacity=".14">
-        <path d="M60 10.3V196M120 10.3V196M180 10.3V196M240 10.3V196M300 10.3V196
-                 M360 10.3V196M420 10.3V196M480 10.3V196M540 10.3V196M600 10.3V196
-                 M660 10.3V196M720 10.3V196M780 10.3V196M840 10.3V196M900 10.3V196
-                 M960 10.3V196M1020 10.3V196M1080 10.3V196M1140 10.3V196"/>
-      </g>
-      <!-- the wall -->
-      <path d="M0 196h1200" fill="none" stroke="var(--mark)" stroke-width="2"/>
-    </svg>
-    <span class="cap">Boundary-layer mesh · growth ratio 1.32</span>
-  </div>
 </header>
+<!-- boundary-layer mesh: prism stack on a no-slip wall, growth 1.32 -->
+<div class="blm" aria-hidden="true">
+  <svg viewBox="0 0 1200 200" preserveAspectRatio="none">
+    <!-- graded layer interfaces, dense at the wall -->
+    <g fill="none" stroke="var(--blue)" stroke-width="1">
+      <path d="M0 193.8h1200" opacity=".80"/>
+      <path d="M0 190.9h1200" opacity=".72"/>
+      <path d="M0 187.1h1200" opacity=".64"/>
+      <path d="M0 182.0h1200" opacity=".56"/>
+      <path d="M0 175.3h1200" opacity=".48"/>
+      <path d="M0 166.5h1200" opacity=".41"/>
+      <path d="M0 154.9h1200" opacity=".34"/>
+      <path d="M0 139.5h1200" opacity=".28"/>
+      <path d="M0 119.2h1200" opacity=".22"/>
+      <path d="M0  92.4h1200" opacity=".16"/>
+      <path d="M0  57.0h1200" opacity=".11"/>
+      <path d="M0  10.3h1200" opacity=".07"/>
+    </g>
+    <!-- streamwise cell divisions -->
+    <g fill="none" stroke="var(--blue)" stroke-width="1" opacity=".14">
+      <path d="M60 10.3V196M120 10.3V196M180 10.3V196M240 10.3V196M300 10.3V196
+               M360 10.3V196M420 10.3V196M480 10.3V196M540 10.3V196M600 10.3V196
+               M660 10.3V196M720 10.3V196M780 10.3V196M840 10.3V196M900 10.3V196
+               M960 10.3V196M1020 10.3V196M1080 10.3V196M1140 10.3V196"/>
+    </g>
+    <!-- the wall -->
+    <path d="M0 196h1200" fill="none" stroke="var(--mark)" stroke-width="2"/>
+  </svg>
+  <span class="cap">Boundary-layer mesh · growth ratio 1.32</span>
+</div>
+
 
 <div class="wrap">
 <div class="sheet">
