@@ -318,7 +318,6 @@
   .prose{max-width:76ch; color:var(--ink-text); font-size:16.5px}
   .prose p{margin:0 0 16px}
   .prose p:last-child{margin-bottom:0}
-  .prose strong{color:var(--ink); font-weight:500}
   .prose em{font-style:italic}
 
   ul.bul{list-style:none; padding:0; margin:24px 0 0; max-width:78ch}
@@ -577,8 +576,8 @@
       <div class="col">
         <div class="prose">
           <p>
-            I work at the intersection of <strong>computational fluid dynamics</strong>,
-            <strong>aero-thermodynamics</strong> and <strong>turbomachinery</strong>. I completed my BSc
+            I work at the intersection of computational fluid dynamics,
+            aero-thermodynamics and turbomachinery. I completed my BSc
             in Aerospace Engineering at the University of Bologna with a final grade of 110/110, and I
             begin my MSc at Technische Universität München in October 2026.
           </p>
@@ -590,7 +589,7 @@
             and where the conclusions stop.
           </p>
           <p>
-            Alongside that, I co-founded <strong>Aurora Rocketry</strong> and spent eighteen months turning
+            Alongside that, I co-founded Aurora Rocketry and spent eighteen months turning
             it from a plan on paper into a hundred-member association that made its debut at the European
             Rocketry Challenge. That side of the work (statutes, budgets, funding applications,
             recruitment) taught me as much as the simulations did.
@@ -599,7 +598,7 @@
             Both of my completed projects are studies of <em>Nemesis</em>, the sounding rocket developed
             at Aurora Rocketry, so the aerodynamics, the meshing practice and the verification discipline
             behind them come from a single vehicle. From here the direction changes. I intend to
-            specialise in <strong>aero engines and turbomachinery</strong>, carrying the numerical and
+            specialise in aero engines and turbomachinery, carrying the numerical and
             aerodynamic methods I already have into a field that demands a good deal more. The NASA C3X
             vane study is the first step that way.
           </p>
@@ -628,14 +627,10 @@
 
         <div class="prose">
           <p>
-            The NASA C3X vane is a reference validation case for turbine aero-thermal prediction: measured
-            in detail and published openly. The objective is to predict the external heat-transfer
-            distribution along the vane surface and compare it against those measurements. I reconstructed
-            the vane profile from the <strong>NASA CR-174827</strong> dataset and prepared a periodic 2.5D
-            domain consistent with the experimental cascade; the current work is a fully structured
-            <strong>multi-block mesh in ANSYS ICEM CFD</strong>, refined near the wall to resolve the
-            thermal boundary layer rather than model it, with the RANS chain in ANSYS Fluent being set up
-            alongside.
+            The NASA C3X vane is a reference case for turbine heat-transfer prediction. The goal is to
+            predict the heat load along the vane surface and hold it against the published measurements.
+            Under way: a structured multi-block mesh fine enough at the wall to resolve the thermal
+            boundary layer, not model it.
           </p>
         </div>
 
@@ -660,17 +655,10 @@
 
         <div class="prose">
           <p>
-            In common CFD practice the exhaust jet is left out of a rocket model and the nozzle exit is
-            capped with a closed surface. This study measures what that simplification costs. The jet and
-            no-jet configurations of the <em>Nemesis</em> sounding rocket were run through one identical
-            workflow, using a compressible density-based solver with <strong>k-ω SST</strong> and wall
-            functions, then compared.
-          </p>
-          <p>
-            Domain- and mesh-independence studies, stationarity and y⁺ checks back every reported
-            difference with an uncertainty budget. Lift and pitching moment are essentially unaffected.
-            Drag is not, and the difference traces almost entirely to the base region under the
-            overexpanded plume.
+            Rocket CFD usually leaves the exhaust jet out and caps the nozzle with a wall. This thesis
+            measures what that shortcut costs: <em>Nemesis</em> with and without its jet, one identical
+            workflow, every difference backed by an uncertainty budget. Lift and pitching moment barely
+            move. Drag does, and the reason sits in the base region under the overexpanded plume.
           </p>
         </div>
 
@@ -701,16 +689,10 @@
 
         <div class="prose">
           <p>
-            Structural clearance of <em>Nemesis</em> under the worst combination of loads it could meet in
-            flight: the atmospheric state at maximum dynamic pressure, the maximum angle of attack from the
-            trajectory, and peak motor thrust, all superimposed.
-          </p>
-          <p>
-            I developed the <strong>CFD-to-FEM load-transfer workflow</strong> adopted in the team's EuRoC
-            Technical Report. Aerodynamic loads computed in ANSYS Fluent were integrated over a surface
-            partition matching the structural breakdown, then applied to an equivalent beam model where
-            <strong>inertia relief</strong> reconstructs the internal load path. Those internal actions fed
-            local checks on every component on the critical path, from bulkhead to electronics-bay rods.
+            Would <em>Nemesis</em> hold under the worst loads it could meet in flight: maximum dynamic
+            pressure, maximum angle of attack and peak thrust, all at once? I built the CFD-to-FEM
+            workflow that answered it in the team's EuRoC Technical Report, carrying the aerodynamic loads
+            down to every component on the critical path.
           </p>
         </div>
 
@@ -750,39 +732,22 @@
 
         <div class="prose">
           <p>
-            Aurora Rocketry is the student rocketry association of the University of Bologna. I founded it
-            in March 2024 together with its first President, starting from a design study and a single
-            fixed objective: reaching the European Rocketry Challenge. Eighteen months later the team
-            counted more than a hundred students across eight departments and made its competition debut
-            in Constância (PT) with the sounding rocket <em>Nemesis</em>.
-          </p>
-          <p>
-            I owned the side of the project that has to work before any engineering can happen: legal
-            existence, money, people and representation. On <em>Nemesis</em> I also contributed the
-            aero-structural analysis and structural verification that went into the EuRoC Technical Report.
+            I co-founded the University of Bologna's student rocketry association in March 2024 with one
+            objective: the European Rocketry Challenge. Eighteen months later, more than a hundred students
+            took <em>Nemesis</em> to its competition debut in Portugal. My side was everything that has to
+            work before engineering can: legal existence, money, people and representation.
           </p>
         </div>
 
         <ul class="bul">
-          <li><b>Founding &amp; governance.</b> Drafted the deed of foundation and statute, registered the
-            association with the Italian Revenue Agency and enrolled it in the University of Bologna
-            register of associations; later wrote the internal regulation defining roles, duties and
-            election procedures.</li>
-          <li><b>Funding.</b> Prepared, under a days-long deadline, the application to the
-            Emilia-Romagna / EU call that awarded the team its NRRP grant; opened the association's
-            banking relationship with LaBCC, which went on to become one of its first sponsors.</li>
-          <li><b>Finance.</b> Managed cash flow, expense tracking, payments, reimbursements and budget
-            planning across all departments, including the procurement rules attached to public funding.</li>
-          <li><b>Facilities &amp; permits.</b> Negotiated dedicated workbench space at the MaSTeR Lab and
-            opened the NOTAM launch-authorisation process with ENAV contacts.</li>
-          <li><b>Recruitment.</b> Ran the second recruitment campaign across the Forlì and Cesena
-            campuses, introducing a real selection process; designed the recruitment flyers.</li>
-          <li><b>EuRoC 2025.</b> Wrote the motivation letter for the team's application, co-produced the
-            official presentation video, and organised travel, logistics and material transport to
-            Portugal.</li>
-          <li><b>Representation.</b> Represented the association at IRESS 2025, the 6<sup>th</sup> CASSINI
-            Hackathon and the We Make Future 2025 fair, designing the exhibition roll-ups for the
-            latter; also designed the association's website.</li>
+          <li><b>Founding &amp; governance.</b> Drafted the statute and internal regulation; registered the
+            association with the Revenue Agency and the University.</li>
+          <li><b>Funding.</b> Wrote, against a days-long deadline, the application that won the NRRP grant.</li>
+          <li><b>Finance.</b> Managed cash flow and budgets for every department, under public-funding rules.</li>
+          <li><b>Facilities.</b> Negotiated dedicated workbench space at the MaSTeR Lab.</li>
+          <li><b>Recruitment.</b> Ran the second campaign across Forlì and Cesena, with a real selection process.</li>
+          <li><b>EuRoC 2025.</b> Wrote the application letter, co-produced the video, organised the trip to Portugal.</li>
+          <li><b>Representation.</b> IRESS 2025, the 6<sup>th</sup> CASSINI Hackathon, We Make Future 2025.</li>
         </ul>
 
         <p class="keys">
