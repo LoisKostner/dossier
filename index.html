@@ -922,5 +922,21 @@
     targets.forEach(t => io.observe(t));
   }
 </script>
+
+<!-- Visit counter: GoatCounter. No cookies, no personal data, nothing to
+     consent to. Dashboard: https://loiskostner.goatcounter.com -->
+<script data-goatcounter="https://loiskostner.goatcounter.com/count"
+        async src="https://gc.zgo.at/count.js"></script>
+<script>
+  // Log each PDF download as its own event, so the dashboard separates
+  // "opened the page" from "actually took a report away".
+  [...document.querySelectorAll('a[href$=".pdf"]')].forEach(a => {
+    a.addEventListener('click', () => {
+      if (!window.goatcounter || !window.goatcounter.count) return;
+      const file = a.getAttribute('href').split('/').pop().replace(/\.pdf$/, '');
+      window.goatcounter.count({path: 'download/' + file, title: 'Download: ' + file, event: true});
+    });
+  });
+</script>
 </body>
 </html>
