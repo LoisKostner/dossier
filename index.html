@@ -166,8 +166,8 @@
                             .fields .sep{margin-left:3px} }
   .lede{margin:0 0 38px; color:var(--muted); font-size:16px; font-weight:400; max-width:56ch}
 
-  /* the record: a digest of 02 Projects and 03 Experience, set as the
-     specification list from Skills and ruled top and bottom so it reads
+  /* the record: a digest of 02 Projects and 03 Experience, set as a
+     specification list and ruled top and bottom so it reads
      as a title block. Concepts are nowrap and carry their own separator,
      as in the fields line: lines break between concepts, never inside one,
      and never start with a mark. */
@@ -288,15 +288,14 @@
     .rail .state{font-size:8px; letter-spacing:.02em; gap:5px}
   }
 
-  /* One treatment for every red-marked heading: entry titles and the
-     sub-headings inside Skills are the same size, weight and gutter.  */
-  h3, .subhead{
+  /* The red-marked heading: entry titles. */
+  h3{
     position:relative; padding-left:var(--gutter);
     margin:0 0 8px; font-family:'Instrument Sans','Helvetica Neue',Arial,sans-serif; font-weight:500;
     font-size:clamp(1.22rem,3.3vw,1.82rem); line-height:1.22; letter-spacing:-.024em;
     color:var(--ink); max-width:42ch;
   }
-  h3::before, .subhead::before{
+  h3::before{
     content:''; position:absolute; left:0; top:.40em;
     width:var(--cube); height:var(--cube); background:var(--mark);
   }
@@ -385,19 +384,7 @@
     .spec > div{grid-template-columns:1fr; gap:7px}
     .spec dt{padding-top:0}
   }
-  /* software: display type, so the instruments read as names */
-  .spec.sw dd{
-    font-family:'Instrument Sans','Helvetica Neue',Arial,sans-serif; font-weight:500; font-size:17px;
-    color:var(--ink); letter-spacing:-.014em;
-  }
-  .spec.sw dd i{
-    font-family:'Instrument Sans',sans-serif; font-style:normal; font-weight:400;
-    color:var(--faint); font-size:13.5px; letter-spacing:0;
-  }
   .spec dd .sep{text-decoration:none; color:var(--hair); margin:0 9px; font-weight:400}
-
-  .subhead{margin-bottom:26px}
-  .block + .block{margin-top:66px}
 
   /* ---------------- colophon ---------------- */
   /* Get in touch is the last chapter of the sheet, so the margin rule
@@ -465,7 +452,6 @@
     <a class="lnk" href="#overview">Overview</a>
     <a class="lnk" href="#projects">Projects</a>
     <a class="lnk" href="#experience">Experience</a>
-    <a class="lnk" href="#skills">Skills</a>
   </div>
 </nav>
 
@@ -760,83 +746,10 @@
     </div>
   </section>
 
-  <!-- ===================== 04 SKILLS ===================== -->
-  <section id="skills">
-    <div class="row head">
-      <div class="rail"><span class="num">04</span></div>
-      <div class="col">
-        <h2>Skills</h2>
-      </div>
-    </div>
-
-    <div class="row body">
-      <div class="rail"></div>
-      <div class="col">
-
-        <div class="block">
-          <p class="subhead">Software</p>
-          <dl class="spec sw">
-            <div>
-              <dt>Geometry &amp; CAD</dt>
-              <dd>SolidWorks <span class="sep">/</span> ANSYS SpaceClaim</dd>
-            </div>
-            <div>
-              <dt>Meshing</dt>
-              <dd>ANSYS Fluent Meshing <span class="sep">/</span> ANSYS ICEM CFD <i>(in progress)</i></dd>
-            </div>
-            <div>
-              <dt>CFD</dt>
-              <dd>ANSYS Fluent</dd>
-            </div>
-            <div>
-              <dt>Structural &amp; FEA</dt>
-              <dd>ANSYS Static Structural <span class="sep">/</span> ANSYS Modal</dd>
-            </div>
-            <div>
-              <dt>Programming &amp; writing</dt>
-              <dd>MATLAB <span class="sep">/</span> LaTeX</dd>
-            </div>
-          </dl>
-        </div>
-
-        <div class="block">
-          <p class="subhead">Technical skills</p>
-          <dl class="spec">
-            <div>
-              <dt>Geometry preparation</dt>
-              <dd>Geometry creation, simplification and CFD preprocessing <span class="sep">·</span> Equivalent beam modelling</dd>
-            </div>
-            <div>
-              <dt>Meshing</dt>
-              <dd>Poly-hexcore and prism-layer meshing <span class="sep">·</span> Structured multi-block meshing <span class="sep">·</span> Near-wall sizing and mesh-quality assessment</dd>
-            </div>
-            <div>
-              <dt>CFD</dt>
-              <dd>Compressible RANS <span class="sep">·</span> Turbulence modelling <span class="sep">·</span> Mesh/domain verification <span class="sep">·</span> Convergence and uncertainty assessment <span class="sep">·</span> Post-processing</dd>
-            </div>
-            <div>
-              <dt>Structural analysis</dt>
-              <dd>Static and modal FEM <span class="sep">·</span> Inertia relief <span class="sep">·</span> Load-path reconstruction <span class="sep">·</span> Component verification and safety margins</dd>
-            </div>
-            <div>
-              <dt>Programming &amp; docs</dt>
-              <dd>MATLAB post-processing and automation <span class="sep">·</span> Technical reporting <span class="sep">·</span> LaTeX</dd>
-            </div>
-            <div>
-              <dt>Organisation</dt>
-              <dd>Team governance <span class="sep">·</span> Budget and public funding <span class="sep">·</span> Sponsor relations <span class="sep">·</span> Recruitment</dd>
-            </div>
-          </dl>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== 05 GET IN TOUCH ===================== -->
+  <!-- ===================== 04 GET IN TOUCH ===================== -->
   <footer>
     <div class="foot">
-      <div class="rail"><span class="num">05</span></div>
+      <div class="rail"><span class="num">04</span></div>
       <div class="col">
         <h5>Get in touch</h5>
         <p class="invite">
