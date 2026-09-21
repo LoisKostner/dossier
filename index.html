@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="only light">
 <title>Lois Kostner · Project Dossier</title>
-<meta name="description" content="Project dossier of Lois Kostner, MSc student in Aerospace Engineering. CFD, aero-thermodynamics and turbomachinery. Downloadable technical reports.">
+<meta name="description" content="Technical reports by Lois Kostner, downloadable in full: sounding-rocket CFD, CFD-FEM aero-structural analysis, Aurora Rocketry. NASA C3X vane study under way.">
 <meta name="author" content="Lois Kostner">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Lois Kostner · Project Dossier">
-<meta property="og:description" content="CFD, aero-thermodynamics and turbomachinery. Technical reports available for download.">
+<meta property="og:description" content="Downloadable technical reports: sounding-rocket CFD, CFD-FEM aero-structural analysis, and the founding of Aurora Rocketry. NASA C3X vane study under way.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2313151a'/%3E%3Cg fill='none' stroke='%23cf3a1c' stroke-width='2'%3E%3Cpath d='M4 56h56'/%3E%3C/g%3E%3Cg fill='none' stroke='%235fa8c7' stroke-width='1.4'%3E%3Cpath d='M4 50h56M4 43h56M4 33h56M4 19h56'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -472,7 +472,7 @@
       </svg>
       <b>Lois Kostner</b><i>Dossier</i>
     </a>
-    <a class="lnk" href="#about">About</a>
+    <a class="lnk" href="#overview">Overview</a>
     <a class="lnk" href="#projects">Projects</a>
     <a class="lnk" href="#experience">Experience</a>
     <a class="lnk" href="#skills">Skills</a>
@@ -494,11 +494,10 @@
       <p class="fields">
         <b>CFD<span class="sep">·</span></b>
         <b>Aero-thermodynamics<span class="sep">·</span></b>
-        <b>Turbomachinery</b>
+        <b>Aero-structural analysis</b>
       </p>
       <p class="lede">
-        I build verified simulation workflows, and write down what they can and cannot
-        be trusted to say.
+        Three technical reports, downloadable in full, and a fourth study under way.
       </p>
 
       <dl class="spec record">
@@ -563,12 +562,12 @@
 <div class="wrap sheet-holder">
 <div class="sheet">
 
-  <!-- ===================== 01 ABOUT ===================== -->
-  <section id="about">
+  <!-- ===================== 01 OVERVIEW ===================== -->
+  <section id="overview">
     <div class="row head">
       <div class="rail"><span class="num">01</span></div>
       <div class="col">
-        <h2>About</h2>
+        <h2>Overview</h2>
       </div>
     </div>
     <div class="row body">
@@ -576,31 +575,39 @@
       <div class="col">
         <div class="prose">
           <p>
-            I work at the intersection of computational fluid dynamics,
-            aero-thermodynamics and turbomachinery. I completed my BSc
-            in Aerospace Engineering at the University of Bologna with a final grade of 110/110, and I
-            begin my MSc at Technische Universität München in October 2026.
+            This dossier collects four pieces of work: three simulation studies and one account of
+            the founding and administration of a student rocketry association. Three are available
+            below as full reports in PDF; the report on the C3X study, still under way, is in
+            preparation.
           </p>
           <p>
-            My simulation work is built around end-to-end workflows: geometry preparation, meshing,
-            solver setup, verification, and post-processing. What I care about most is the middle step.
-            A result without a mesh-independence study, a near-wall validity check and an honest uncertainty budget is an
-            opinion, not an answer, so each report states plainly what was verified, what was simplified,
-            and where the conclusions stop.
+            Two of the studies concern <em>Nemesis</em>, the sounding rocket built at Aurora Rocketry.
+            The BSc thesis (October 2025 – March 2026) quantifies the effect of the propulsive jet on
+            the vehicle’s aerodynamic coefficients: powered and unpowered configurations run through one
+            identical ANSYS Fluent workflow, with lift, drag and pitching moment compared under an
+            explicit uncertainty budget. The contribution to the EuRoC Technical Report (July – October
+            2025) is a CFD-FEM aero-structural analysis at the critical flight condition, combining peak
+            aerodynamic loads with maximum motor thrust, transferring the distributed loads onto an
+            equivalent beam model and reconstructing the internal load path by inertia relief.
           </p>
           <p>
-            Alongside that, I co-founded Aurora Rocketry and spent eighteen months turning
-            it from a plan on paper into a hundred-member association that made its debut at the European
-            Rocketry Challenge. That side of the work (statutes, budgets, funding applications,
-            recruitment) taught me as much as the simulations did.
+            The third study, under way since September 2026, is an aerothermal analysis of the NASA C3X
+            turbine vane. The profile is reconstructed from the CR-174827 data into a periodic 2.5D
+            domain; a structured multi-block mesh is refined at the wall to resolve the thermal boundary
+            layer, and the predicted external heat-transfer distribution will be compared with the
+            published measurements.
           </p>
           <p>
-            Both of my completed projects are studies of <em>Nemesis</em>, the sounding rocket developed
-            at Aurora Rocketry, so the aerodynamics, the meshing practice and the verification discipline
-            behind them come from a single vehicle. From here the direction changes. I intend to
-            specialise in aero engines and turbomachinery, carrying the numerical and
-            aerodynamic methods I already have into a field that demands a good deal more. The NASA C3X
-            vane study is the first step that way.
+            The three studies follow the same sequence: geometry preparation, meshing, solver setup,
+            verification, post-processing. Each completed report states the mesh- and
+            domain-independence studies carried out, the simplifications adopted, and the numerical
+            uncertainty attached to the results.
+          </p>
+          <p>
+            The fourth document covers Aurora Rocketry between March 2024 and October 2025: statute and
+            registration, budgets and cash flow under public-funding rules, the NRRP grant application,
+            recruitment, and the growth of the association to more than a hundred members ahead of its
+            debut at the European Rocketry Challenge.
           </p>
         </div>
       </div>
@@ -892,8 +899,8 @@
       <div class="col">
         <h5>Get in touch</h5>
         <p class="invite">
-          Open to MSc-level thesis work, internships and research collaborations in CFD,
-          aero-thermodynamics and turbomachinery.
+          Open to MSc-level thesis work, internships and working-student positions in CFD,
+          fluid mechanics and aero-thermodynamics.
         </p>
         <div class="addr">
           <a href="mailto:loiskostner@gmail.com"><span class="k">Email</span>loiskostner@gmail.com</a>
