@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="only light">
 <title>Lois Kostner · Project Dossier</title>
-<meta name="description" content="Technical reports by Lois Kostner, downloadable in full: sounding-rocket CFD, CFD-FEM aero-structural analysis, Aurora Rocketry. NASA C3X vane study under way.">
+<meta name="description" content="Technical reports by Lois Kostner, downloadable in full: conjugate heat transfer on the NASA C3X turbine vane, sounding-rocket CFD, CFD-FEM aero-structural analysis, Aurora Rocketry.">
 <meta name="author" content="Lois Kostner">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Lois Kostner · Project Dossier">
-<meta property="og:description" content="Downloadable technical reports: sounding-rocket CFD, CFD-FEM aero-structural analysis, and the founding of Aurora Rocketry. NASA C3X vane study under way.">
+<meta property="og:description" content="Downloadable technical reports: conjugate heat transfer on the NASA C3X turbine vane, sounding-rocket CFD, CFD-FEM aero-structural analysis, and the founding of Aurora Rocketry.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2313151a'/%3E%3Cg fill='none' stroke='%23cf3a1c' stroke-width='2'%3E%3Cpath d='M4 56h56'/%3E%3C/g%3E%3Cg fill='none' stroke='%235fa8c7' stroke-width='1.4'%3E%3Cpath d='M4 50h56M4 43h56M4 33h56M4 19h56'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -356,14 +356,6 @@
   .dl:hover .ico span{transform:translateY(3px)}
   .dl:hover .s{color:var(--paper); opacity:.8}
 
-  .pending{
-    display:inline-flex; align-items:center; margin-top:32px; margin-left:var(--gutter);
-    border:1px dashed var(--hair); padding:13px 20px;
-    font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:.12em;
-    text-transform:uppercase; color:var(--faint);
-  }
-
-
   /* Everything in an entry hangs off the same gutter, so the red
      mark is the only thing living in the margin.                      */
   .entry .prose, .entry ul.bul, .entry .keys{padding-left:var(--gutter)}
@@ -471,7 +463,7 @@
         <b>Aero-structural analysis</b>
       </p>
       <p class="lede">
-        Three technical reports, downloadable in full, and a fourth study under way.
+        Four technical reports, downloadable in full.
       </p>
 
       <dl class="spec record">
@@ -549,9 +541,8 @@
         <div class="prose">
           <p>
             This dossier collects four pieces of work: three simulation studies and one account of
-            the founding and administration of a student rocketry association. Three are available
-            below as full reports in PDF; the report on the C3X study, still under way, is in
-            preparation.
+            the founding and administration of a student rocketry association. All four are available
+            below as full reports in PDF.
           </p>
           <p>
             Two of the studies concern <em>Nemesis</em>, the sounding rocket built at Aurora Rocketry.
@@ -564,17 +555,20 @@
             equivalent beam model and reconstructing the internal load path by inertia relief.
           </p>
           <p>
-            The third study, under way since September 2026, is an aerothermal analysis of the NASA C3X
-            turbine vane. The profile is reconstructed from the CR-174827 data into a periodic 2.5D
-            domain; a structured multi-block mesh is refined at the wall to resolve the thermal boundary
-            layer, and the predicted external heat-transfer distribution will be compared with the
-            published measurements.
+            The third study (September – October 2026) is a conjugate heat transfer simulation of the
+            NASA C3X turbine vane, an internally cooled guide vane with ten radial cooling holes. It
+            reproduces run 157 of the NASA cascade experiment in ANSYS Fluent with the k-ω SST model, on
+            a fully structured mesh of about 11 million cells that covers the hot-gas passage, the solid
+            vane and the cooling channels. Pressure, wall temperature and wall heat flux at midspan are
+            compared with the measurements and with a published simulation of the same run.
           </p>
           <p>
             The three studies follow the same sequence: geometry preparation, meshing, solver setup,
-            verification, post-processing. Each completed report states the mesh- and
-            domain-independence studies carried out, the simplifications adopted, and the numerical
-            uncertainty attached to the results.
+            verification, post-processing. Each report states the checks carried out, the
+            simplifications adopted and the limits of its results. The two <em>Nemesis</em> studies
+            include mesh- and domain-independence studies and a numerical uncertainty estimate. The C3X
+            study was run on a single mesh: it verifies mass and energy conservation and near-wall
+            resolution, and states that mesh independence was not checked.
           </p>
           <p>
             The fourth document covers Aurora Rocketry between March 2024 and October 2025: statute and
@@ -599,27 +593,38 @@
     <!-- C3X -->
     <div class="row entry">
       <div class="rail">
-        <span class="when"><b>Sep 2026</b>– ongoing</span>
-        <span class="state">In progress</span>
+        <span class="when"><b>Sep 2026</b>– Oct 2026</span>
+        <span class="state">Personal project</span>
       </div>
       <div class="col">
-        <h3>Aerothermal CFD Analysis of the NASA C3X Turbine Vane</h3>
+        <h3>CHT Analysis of the NASA C3X Turbine Vane</h3>
 
         <div class="prose">
           <p>
-            The NASA C3X vane is a reference case for turbine heat-transfer prediction. The goal is to
-            predict the heat load along the vane surface and hold it against the published measurements.
-            Under way: a structured multi-block mesh fine enough at the wall to resolve the thermal
-            boundary layer, not model it.
+            The NASA C3X is an internally cooled turbine vane with ten radial cooling holes, and a
+            common test case for conjugate heat transfer. This study reproduces one operating point of
+            the experiment, run 157, solving hot gas, coolant and metal together: the wall temperature
+            is a result, not a boundary condition. At midspan, pressure matches the measurements within
+            2% and wall temperature within 2.6% on average. The simulated wall is hotter than the
+            measured one at every station, by 15.7 K on average, and the report separates what the
+            results show from what remains a hypothesis: a single mesh, no transition model, inputs the
+            experiment leaves open.
           </p>
         </div>
 
         <p class="keys">
-          ANSYS ICEM CFD <span class="sep">/</span> Structured multi-block meshing <span class="sep">/</span> ANSYS Fluent <span class="sep">/</span>
-          RANS <span class="sep">/</span> External heat transfer <span class="sep">/</span> Turbomachinery
+          ANSYS SpaceClaim <span class="sep">/</span> ANSYS ICEM CFD · structured blocking <span class="sep">/</span> ANSYS Fluent <span class="sep">/</span>
+          Conjugate heat transfer <span class="sep">/</span> RANS k-ω SST <span class="sep">/</span> Wall-resolved · y<sup>+</sup> ≈ 1 <span class="sep">/</span>
+          Comparison with NASA measurements <span class="sep">/</span> Turbomachinery
         </p>
 
-        <div class="pending">Report in preparation</div>
+        <a class="dl" href="docs/Kostner-CHT-NASA-C3X-Turbine-Vane.pdf" download>
+          <span class="ico"><span>&#8595;</span></span>
+          <span class="txt">
+            <span class="t">Report</span>
+            <span class="s">PDF · 22 pages · 4.0 MB</span>
+          </span>
+        </a>
       </div>
     </div>
 
